@@ -1,0 +1,22 @@
+<div ng-click="ensureHiddenFocus()" style="height:100%">
+	<h1>OpenPOS Login</h1>
+	<div class="middleblock">
+	<p>Enter your pin to access the system.</p>
+	<input type="number" ng-model="pin" autofocus="autofocus" id="importantTypeField"/> <a style="color:red;" ng-click="clear()">x</a>
+	<div class="numpad">
+		<div>
+			<button ng-click="tap(7)">7</button><button ng-click="tap(8)">8</button><button ng-click="tap(9)">9</button>
+		</div>
+		<div>
+			<button ng-click="tap(4)">4</button><button ng-click="tap(5)">5</button><button ng-click="tap(6)">6</button>
+		</div>	
+		<div>
+			<button ng-click="tap(1)">1</button><button ng-click="tap(2)">2</button><button ng-click="tap(3)">3</button>
+		</div>	
+		<div style="margin-right:100px;"><button style="width:200px;" ng-click="tap(0)">0</button></div>
+	</div>
+
+	<div style="margin-top:100px;"><button style="width:300px;height:100px;" ng-click="signIn()">Sign In</button></div>
+	<div>{{error}}</div>
+	</div>
+</div>

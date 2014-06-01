@@ -3,14 +3,26 @@ html {
 }
 
 body {
-  box-shadow: 0 0 50px #ddd inset;
-  -webkit-box-shadow: 0 0 50px #ddd inset;
-  font-family: OpenSans, Helvetica, Arial, sans;
   height: 100%;
   margin: 0;
-  text-align: center;
+ 
+}
+body>div {
+	height:100%;
 }
 
 img {
   margin: 50px auto;
+}
+
+h1 {margin:15px;}
+p {margin:15px;}
+
+.numpad button {
+	width:100px;
+	height:100px;
+}
+
+.middleblock {
+	text-align:center;
 }

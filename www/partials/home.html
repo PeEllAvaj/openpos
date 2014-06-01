@@ -1,0 +1,20 @@
+<div ng-click="ensureHiddenFocus()" style="height:100%">
+	<h1>OpenPOS</h1>
+	<div>{{scanStatus}}</div>
+	<div style="position: absolute;
+top: -300px;">
+		Scan an item: <input type="text" ng-model="UPC" autofocus ng-change="scan()" id="importantTypeField"/>
+	</div>
+	<h2>Add an Item</h2>
+	<div>Type an item to search it: <input type="text" ng-model="search" ng-click="notReady();$event.stopPropagation()"/>
+	<div>
+		<div ng-repeat="product in productDB | filter:search">
+			{{product.name}}  {{product.price}} <button ng-click="buy(product)">Buy</button>
+		</div>
+	</div>
+	<h2>Purchases</h2>
+	<div ng-repeat="purchase in purchases track by $index">
+	{{purchase.name}} {{purchase.price}}
+	</div>
+	<p>Total: {{purchaseTotal | currency}}</p>
+</div>

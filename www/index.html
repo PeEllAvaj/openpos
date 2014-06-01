@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="posApp">
   <head>
-    <title>Hello, Mobile!</title>
+    <title>POS System</title>
     <link rel="stylesheet" href="index.css" type="text/css" />
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-resource/angular-resource.js"></script>
+    <script src="/bower_components/angular-route/angular-route.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers.js"></script>
+    <script src="services.js"></script>
   </head>
   <body>
-    <img src="assets/chrome_logo.png" />
-    <h1>Hello, Mobile!</h1>
+  	<div ng-view></div>
   </body>
 </html>
