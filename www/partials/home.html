@@ -14,7 +14,7 @@ top: -300px;">
 	</div>
 	<h2>Purchases</h2>
 	<div ng-repeat="purchase in purchases track by $index">
-	{{purchase.name}} {{purchase.price}}
+	{{purchase.name}} {{purchase.price}} <input type="number" ng-model="purchase.quantity"/>
 	</div>
-	<p>Total: {{purchaseTotal | currency}}</p>
+	<p>Total: {{refreshPurchaseTotal() | currency}}</p>
 </div>

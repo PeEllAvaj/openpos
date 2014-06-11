@@ -4,13 +4,15 @@ app.controller('HomeCtrl',function($scope, Navigate) {
 	$scope.purchases = [];
 
 	$scope.productDB = [
-		{name:"Coke",price:3.99, upc:"11111"},
-		{name:"Ciroq",price:14.99, upc:"22222"}
+		{name:"Coke",price:2.99,  upc:"04963406"},
+		{name:"Water",price:3.99, upc:"06827458"},
+		{name:"Fanta",price:2.95, upc:"049000014235"},
+		{name:"Coke Zero",price:49.99, upc:"049000042566"}
 	];
 
 	$scope.scan = function() {
 		console.log("UPC was updated to be " + $scope.UPC);
-		if($scope.UPC.length == 5) {
+		if($scope.UPC.length == 8 || $scope.UPC.length == 12) {
 			for (var i = $scope.productDB.length - 1; i >= 0; i--) {
 				product = $scope.productDB[i];
 				if(product.upc == $scope.UPC) {
@@ -19,7 +21,7 @@ app.controller('HomeCtrl',function($scope, Navigate) {
 					return;
 				}
 			};
-		} else if ($scope.UPC.length > 5) {
+		} else if ($scope.UPC.length > 12) {
 			$scope.UPC = "";
 		}
 
@@ -47,15 +49,20 @@ app.controller('HomeCtrl',function($scope, Navigate) {
 	$scope.refreshPurchaseTotal = function() {
 		total = 0;
 		for (var i = $scope.purchases.length - 1; i >= 0; i--) {
-			total += $scope.purchases[i].price;
+			total += $scope.purchases[i].price * $scope.purchases[i].quantity;
 		};
 		
 		// BEWARE OF FLOATING POINT MATH FOR CURRENCY!!!!! THIS MIGHT BE OFF A TINY TINY BIT
 		$scope.purchaseTotal = total;
+		return total;
 	}
 	$scope.buy = function (product) {
-		$scope.purchases.push(product);
-		$scope.refreshPurchaseTotal();
+		var newproduct = {}
+		newproduct.price = product.price;
+		newproduct.quantity = 1;
+		newproduct.name = product.name;
+		$scope.purchases.push(newproduct);
+		
 	}
 
 
